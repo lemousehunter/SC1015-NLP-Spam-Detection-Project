@@ -10,3 +10,4 @@
 # Ignore folder 
 /.idea
 /__pycache__
+data/pre-trained/glove.6B.zip
