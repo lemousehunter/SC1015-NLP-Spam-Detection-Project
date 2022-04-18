@@ -11,3 +11,4 @@
 /.idea
 /__pycache__
 data/pre-trained/glove.6B.zip
+latest_error_output.txt
