@@ -380,7 +380,7 @@ class LSTMModel(tf.keras.Model):
         else:
             raise AttributeError('Glove embedding size must be one of the following: [50, 100, 200, 300]')
 
-        with open(glove_300d, encoding="utf8") as _f:
+        with open(_glove, encoding="utf8") as _f:
             for _line in tqdm.tqdm(_f, "Reading GloVe"):
                 word, coefs = _line.split(maxsplit=1)
                 coefs = np.fromstring(coefs, "f", sep=" ")
@@ -468,7 +468,8 @@ class TrainValidate:
 
             return history
 
-    def gen_history_plot(self, history, filename):
+    @staticmethod
+    def gen_history_plot(history, filename):
         if type(history) != dict:
             history = history.history
 
@@ -561,11 +562,61 @@ class TrainValidate:
 
 
 if __name__ == '__main__':
-    train_val = TrainValidate(re_split=False,
-                              glove_embedding_size=300,
-                              lstm_units=128,
-                              embedding_map=None,
-                              train=False)
+    lst_epochs = [10] + list(range(10, 21))
+    optimizer_lst = ['SGD', 'RMSprop', 'Adam', 'Adadelta', 'Adagrad', 'Adamax', 'Nadam', 'Ftrl']
+    lost_lst = ['binary_crossentropy', 'categorical_crossentropy', 'sparse_categorical_crossentropy', 'poisson']
+
+    for o in optimizer_lst:
+        train_val = TrainValidate(
+            embedding_map=None,
+            glove_embedding_size=300,
+            lstm_units=128,
+            train=True,
+        )
+
+        train_val.compile_run(accuracy='accuracy',
+                              optimizer=o,
+                              loss='categorical_crossentropy',
+                              batch_size=64,
+                              epochs=10
+                              )
+
+    for l in lost_lst:
+        train_val = TrainValidate(
+            embedding_map=None,
+            glove_embedding_size=300,
+            lstm_units=128,
+            train=True,
+        )
+
+        train_val.compile_run(accuracy='accuracy',
+                              optimizer='RMSprop',
+                              loss=l,
+                              batch_size=64,
+                              epochs=10
+                              )
+
+    for i in lst_epochs:
+        train_val = TrainValidate(
+            embedding_map=None,
+            glove_embedding_size=300,
+            lstm_units=128,
+            train=True,
+        )
+
+        train_val.compile_run(accuracy='accuracy',
+                              optimizer='RMSprop',
+                              loss='categorical_crossentropy',
+                              batch_size=64,
+                              epochs=i
+                              )
+
+        if i == 20:
+            train_val.load_histories()
+            train_val.eval_models()
+
+
+
 
     """
     train_val.compile_run(accuracy='accuracy',
@@ -574,6 +625,67 @@ if __name__ == '__main__':
                           loss='binary_crossentropy',
                           optimizer='adam')
     """
+
+    """def gen_history_plot(history, filename):
+        if type(history) != dict:
+            history = history.history
+
+        history_nested_dict = {}  # {'metric': {'epochs': {}, 'values': {}}}
+        for metric, nested_dict in history.items():
+            epochs_lst = []
+            val_lst = []
+
+            for epochs, values in nested_dict.items():
+                epochs_lst.append(epochs)
+                val_lst.append(values)
+
+            history_nested_dict[metric] = {'metric': metric, 'epochs': epochs_lst, 'values': val_lst}
+
+        df = pd.DataFrame()
+
+        for metric in history_nested_dict.keys():
+            _df = pd.DataFrame(history_nested_dict[metric], columns=history_nested_dict[metric].keys())
+            df = pd.concat([df, _df])
+
+        print(f"df cols: {df.columns}")
+
+        # Generate and save figures
+        grouped_df = df.groupby('metric')
+
+        loss_df = pd.DataFrame()
+        for g in ['loss', 'val_loss']:
+            loss_df = pd.concat([grouped_df.get_group(g), loss_df])
+        fig_loss = px.line(loss_df, x='epochs', y='values', color='metric')
+        fig_loss_name = filename.replace('.json', "[fig_loss].") + 'png'
+        fig_loss.write_image(fig_loss_name)
+        fig_loss.write_html(fig_loss_name.replace('png', 'html'))
+
+        accuracy_df = pd.DataFrame()
+        for g in ['accuracy', 'val_accuracy']:
+            accuracy_df = pd.concat([grouped_df.get_group(g), accuracy_df])
+        fig_accuracy = px.line(accuracy_df, x='epochs', y='values', color='metric')
+        fig_accuracy_name = filename.replace('.json', "[fig_accuracy].") + 'png'
+        fig_accuracy.write_image(fig_accuracy_name)
+        fig_accuracy.write_html(fig_accuracy_name.replace('png', 'html'))
+
+        prec_recall_f1_df = pd.DataFrame()
+        for g in ['precision', 'val_precision', 'recall', 'val_recall', 'f1', 'val_f1']:
+            prec_recall_f1_df = pd.concat([grouped_df.get_group(g), prec_recall_f1_df])
+        fig_prec_recall_f1 = px.line(prec_recall_f1_df, x='epochs', y='values', color='metric')
+        fig_prec_recall_f1_name = filename.replace('.json', "[fig_prec_recall_f1].") + 'png'
+        fig_prec_recall_f1.write_image(fig_prec_recall_f1_name)
+        fig_prec_recall_f1.write_html(fig_prec_recall_f1_name.replace('png', 'html'))
+
+    def load_histories():
+        print(f"loading histories...")
+        dir_lst = glob.glob(str(class_results_folder / '?history?lstm*.json'))
+
+        for file in dir_lst:
+            print(f"loading history for {file}")
+            with open(file, 'r') as f:
+                h = json.load(f)
+                gen_history_plot(h, file)"""
+
     # train_val.eval_model()
     # train_val.eval_models()
-    train_val.load_histories()
+    # train_val.load_histories()
