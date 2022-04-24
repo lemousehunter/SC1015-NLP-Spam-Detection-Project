@@ -6,13 +6,19 @@ An NLP project that uses Classification Trees and LSTM to predict whether a mess
 
 This is our Mini-Project for SC1015 (Introduction to Data Science and Artificial Intelligence) which focuses on differentiating ham and spam messages from a UCI Machine Learning Repository Dataset (https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection). 
 
-To fully understand our project, please view the source code in order from: (KIV)
+To fully understand our project, please here are some details pertaining to the files in our repository:
 
-1. [tmp1](link)
-2. [tmp2](link)
-3. [tmp3](link)
-4. [tmp4](link)
-5. [tmp5](link)
+Files of Interest:
+- fileMaster.py: holds all the filepaths in variables for easy access (and change, if needed)
+- LSTMModel.py: contains the condensed classes required for training: PreProcess() which preprocesses the data, LSTMModel (Which is the model class) and TrainValidate (which contains the class to compile and fit (or load from saved folder) the LSTM model
+- word_idx.json: contains the word index generated from the words tokenized by our custom tokenization function]
+
+Folders of Interest:
+- data: contains all data directories, including pre-trained embeedings, processed, raw, results and train_test (this train_test folder is used for notebook only)
+- pre-trained: contains glove pre-trained embeddings
+- processed: contains the cleaned txt file and the train test folder (this train test is used solely by the TrainValidate class)
+- raw: contains all the raw data
+- results: contains saved models and model histories from both the trainings conducted within the notebook, and TrainValidate class
   
 ## Contributors
 
