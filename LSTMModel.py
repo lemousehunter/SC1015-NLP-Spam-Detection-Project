@@ -11,6 +11,16 @@ import plotly.express as px
 
 
 class PreProcess:
+    """
+    Preprocesses data into format acceptable for input by LSTMModel Class.
+
+    .run() function
+        - processes the input data from file specified in raw_data_txt of fileMaster.py
+        - takes a re_split boolean variable that toggles between re-splitting the train_test datasets (if it exists) and just loading it directly
+    .predict() function
+        - takes in a dictionary that contains the actual type, and message to be classified
+
+    """
     def __init__(self, split_ratio=0.25):
         self.df = self._txt2df()
         self.seq_len = self._get_max_fence()
@@ -305,6 +315,9 @@ class PreProcess:
                 row['PaddedMsgs'].append(s)
 
 def f1(y_true, y_pred):
+    """
+    function to calculate f1 scores, given y_true and y_pred
+    """
 
     def recall_m(_y_true):
         positives = tf.keras.backend.sum(tf.keras.backend.round(tf.keras.backend.clip(_y_true, 0, 1)))
@@ -326,7 +339,23 @@ def f1(y_true, y_pred):
 
 
 class LSTMModel(tf.keras.Model):
-    def __init__(self, seq_len, tokenizer, lstm_units, _activation, _glove_embedding_size, embedding_map,
+    """
+    LSTM model
+    - takes in the following hyperparameters / variables:
+        - sequence length
+        - tokenizer object
+        - number of lstm units
+        - activation function
+        - glove embedding dimensions
+        - embedding map: if this is provided, then class will not reparse GloVe embeddings to save time (for use on jupyter), defaults to None
+        - recurrent dropout rate for lstm layer
+        - dropout rate for dropout layer
+    - inherits from the tensorflow Keras Model class
+        - _init_ function is overwritten with inheritance to instantiate layers (through function call ._build_model()
+        - call method is overwritten to route layer inputs and outputs
+
+    """
+    def __init__(self, seq_len, tokenizer, lstm_units, _activation, _glove_embedding_size, embedding_map=None,
                  _recurrent_dropout=0.2, _dropout=0.3):
         super(LSTMModel, self).__init__()
         self.seq_len = seq_len
@@ -405,6 +434,15 @@ class LSTMModel(tf.keras.Model):
 
 
 class TrainValidate:
+    """
+    TrainValidate class
+    - .compile_run(): hosts training loop
+    - .gen_history_plot(): generates plot to visualize training history, given a history dict
+    - .load_histories(): extracts histories from json file and calls .gen_history_plot()
+    - .eval_model(): evaluates self.model
+    - .eval_models(): iterates through saved models in directory (specified in class_results_folder of fileMaster.py), calls ._eval_model() on each saved model
+
+    """
     def __init__(self, glove_embedding_size, lstm_units, embedding_map, re_split=False, train=False):
         self.pre_process = PreProcess()
         self.processed_data, self.tokenizer, self.seq_len = self.pre_process.run(re_split=re_split)
