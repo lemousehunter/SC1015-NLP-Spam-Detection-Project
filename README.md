@@ -13,6 +13,7 @@ Files of Interest:
 - fileMaster.py: holds all the filepaths in variables for easy access (and change, if needed)
 - LSTMModel.py: contains the condensed classes required for training: PreProcess() which preprocesses the data, LSTMModel (Which is the model class) and TrainValidate (which contains the class to compile and fit (or load from saved folder) the LSTM model
 - word_idx.json: contains the word index generated from the words tokenized by our custom tokenization function]
+-  list of versions required for the libraries we used in our code
 
 Folders of Interest:
 - data: contains all data directories, including pre-trained embeedings, processed, raw, results and train_test (this train_test folder is used for notebook only)
