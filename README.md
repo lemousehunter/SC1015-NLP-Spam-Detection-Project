@@ -8,9 +8,8 @@ This is our Mini-Project for SC1015 (Introduction to Data Science and Artificial
 
 To fully understand our project, here are some details pertaining to the items in our repository:
 
-SpamHamClassification.ipynb: holds all code, documentation and analysis
-
 Files of Interest:
+- SpamHamClassification.ipynb: holds all code, documentation and analysis
 - fileMaster.py: holds all the filepaths in variables for easy access (and change, if needed)
 - LSTMModel.py: contains the condensed classes required for training: PreProcess() which preprocesses the data, LSTMModel (Which is the model class) and TrainValidate (which contains the class to compile and fit (or load from saved folder) the LSTM model
 - word_idx.json: contains the word index generated from the words tokenized by our custom tokenization function]
