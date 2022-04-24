@@ -38,7 +38,7 @@ To fully understand our project, please view the source code in order from: (KIV
 - Classification trees are able to predict the type of message with high accuracies, but with a low F1 score.
 - LSTM performs better than classification trees in predicting the type of message. 
 - Yes, it is possible to differentiate ham and spam messages using machine learning, however, there is still room for improvement.
-
+-
 - Popularity and budget have low linear correlation value with ratings (watch out for bandwagons 🤣)
 - Popularity of the casts and crews have higher linear correlation value with ratings
 - Resampling imbalanced data improved model performance especially on the minority class
