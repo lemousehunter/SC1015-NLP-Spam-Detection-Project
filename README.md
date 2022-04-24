@@ -36,22 +36,13 @@ Folders of Interest:
 1. Binary Classification Tree
 2. Long Short-Term Memory (LSTM)
 
-## Conclusion (KIV)
+## Conclusion
 
-- fwf
-- wfaw
-- wafwf
-- wfa
-- Classification trees are able to predict the type of message with high accuracies, but with a low F1 score.
-- LSTM performs better than classification trees in predicting the type of message. 
+- Words and characters are much better predictors than sentences to classiy ham or spam messages
+- Classification trees are able to predict the type of message with relatively high accuracies, but with a low F1 score.
+- LSTM performs better than classification trees in predicting the type of message.
+- Vectorization plays a key role when dealing with textual data. 
 - Yes, it is possible to differentiate ham and spam messages using machine learning, however, there is still room for improvement.
--
-- Popularity and budget have low linear correlation value with ratings (watch out for bandwagons 🤣)
-- Popularity of the casts and crews have higher linear correlation value with ratings
-- Resampling imbalanced data improved model performance especially on the minority class
-- Logistic Regression did not perform well with non-linearly correlated variables
-- Neural Networks along with SMOTEENN resampling method consistently did well in predicting good movies after 100 training attempts (around 72% accuracy, 70% recall)
-- Yes, it is possible to predict if a movie is good with acceptable amount of accuracy and recall
 
 ## What did we learn from this project?
 
