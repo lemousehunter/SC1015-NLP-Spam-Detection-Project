@@ -6,18 +6,25 @@ An NLP project that uses Classification Trees and LSTM to predict whether a mess
 
 This is our Mini-Project for SC1015 (Introduction to Data Science and Artificial Intelligence) which focuses on differentiating ham and spam messages from a UCI Machine Learning Repository Dataset (https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection). 
 
-To fully understand our project, please view the source code in order from: (KIV)
+To fully understand our project, here are some details pertaining to the items in our repository:
 
-1. [tmp1](link)
-2. [tmp2](link)
-3. [tmp3](link)
-4. [tmp4](link)
-5. [tmp5](link)
+Files of Interest:
+- SpamHamClassification.ipynb: holds all code, documentation and analysis
+- fileMaster.py: holds all the filepaths in variables for easy access (and change, if needed)
+- LSTMModel.py: contains the condensed classes required for training: PreProcess() which preprocesses the data, LSTMModel (Which is the model class) and TrainValidate (which contains the class to compile and fit (or load from saved folder) the LSTM model
+- word_idx.json: contains the word index generated from the words tokenized by our custom tokenization function]
+
+Folders of Interest:
+- data: contains all data directories, including pre-trained embeedings, processed, raw, results and train_test (this train_test folder is used for notebook only)
+- pre-trained: contains glove pre-trained embeddings
+- processed: contains the cleaned txt file and the train test folder (this train test is used solely by the TrainValidate class)
+- raw: contains all the raw data
+- results: contains saved models and model histories from both the trainings conducted within the notebook, and TrainValidate class
   
 ## Contributors
 
 - @lemousehunter - Primary Coder, Long Short-Term Memory Model, Machine Learning Engineer
-- @raydent30 - Secondary Coder, Exploratory Data Analysis, Data Analytics
+- @raydent30 - Secondary Coder, Exploratory Data Analysis, Data Analytics, Documentation
 
 ## Problem Definition
 
@@ -29,22 +36,14 @@ To fully understand our project, please view the source code in order from: (KIV
 1. Binary Classification Tree
 2. Long Short-Term Memory (LSTM)
 
-## Conclusion (KIV)
+## Conclusion
 
-- fwf
-- wfaw
-- wafwf
-- wfa
-- Classification trees are able to predict the type of message with high accuracies, but with a low F1 score.
-- LSTM performs better than classification trees in predicting the type of message. 
-- Yes, it is possible to differentiate ham and spam messages using machine learning, however, there is still room for improvement.
--
-- Popularity and budget have low linear correlation value with ratings (watch out for bandwagons 🤣)
-- Popularity of the casts and crews have higher linear correlation value with ratings
-- Resampling imbalanced data improved model performance especially on the minority class
-- Logistic Regression did not perform well with non-linearly correlated variables
-- Neural Networks along with SMOTEENN resampling method consistently did well in predicting good movies after 100 training attempts (around 72% accuracy, 70% recall)
-- Yes, it is possible to predict if a movie is good with acceptable amount of accuracy and recall
+- Words and characters are much better predictors than sentences to classiy ham or spam messages
+- Classification trees are able to predict the type of message with relatively high accuracies, but with a low F1 score.
+- LSTM performs better than classification trees in predicting the type of message.
+- Vectorization plays a key role when dealing with textual data. 
+- Yes, it is possible to differentiate ham and spam messages using both Classfication Trees and LSTM, however, there is still room for improvement.
+- A transfomer theoretically will be able to produce much better F1 scores than both Classification Trees and LSTM.
 
 ## What did we learn from this project?
 
