@@ -6,7 +6,7 @@ An NLP project that uses Classification Trees and LSTM to predict whether a mess
 
 This is our Mini-Project for SC1015 (Introduction to Data Science and Artificial Intelligence) which focuses on differentiating ham and spam messages from a UCI Machine Learning Repository Dataset (https://archive.ics.uci.edu/ml/datasets/SMS+Spam+Collection). 
 
-To fully understand our project, please here are some details pertaining to the files in our repository:
+To fully understand our project, here are some details pertaining to the items in our repository:
 
 Files of Interest:
 - fileMaster.py: holds all the filepaths in variables for easy access (and change, if needed)
