@@ -42,7 +42,7 @@ Folders of Interest:
 - Classification trees are able to predict the type of message with relatively high accuracies, but with a low F1 score.
 - LSTM performs better than classification trees in predicting the type of message.
 - Vectorization plays a key role when dealing with textual data. 
-- Yes, it is possible to differentiate ham and spam messages using machine learning, however, there is still room for improvement.
+- Yes, it is possible to differentiate ham and spam messages using both Classfication Trees and LSTM, however, there is still room for improvement.
 
 ## What did we learn from this project?
 
