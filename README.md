@@ -8,6 +8,8 @@ This is our Mini-Project for SC1015 (Introduction to Data Science and Artificial
 
 To fully understand our project, here are some details pertaining to the items in our repository:
 
+GloVe Word Vectorizer can be downloaded from this website: https://nlp.stanford.edu/projects/glove/
+
 Files of Interest:
 - SpamHamClassification.ipynb: holds all code, documentation and analysis
 - fileMaster.py: holds all the filepaths in variables for easy access (and change, if needed)
