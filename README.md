@@ -43,6 +43,7 @@ Folders of Interest:
 - LSTM performs better than classification trees in predicting the type of message.
 - Vectorization plays a key role when dealing with textual data. 
 - Yes, it is possible to differentiate ham and spam messages using both Classfication Trees and LSTM, however, there is still room for improvement.
+- A transfomer theoretically will be able to produce much better F1 scores than both Classification Trees and LSTM.
 
 ## What did we learn from this project?
 
