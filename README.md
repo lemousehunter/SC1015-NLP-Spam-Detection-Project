@@ -8,7 +8,8 @@ This is our Mini-Project for SC1015 (Introduction to Data Science and Artificial
 
 To fully understand our project, here are some details pertaining to the items in our repository:
 
-GloVe Word Vectorizer can be downloaded from this website: https://nlp.stanford.edu/projects/glove/
+GloVe Word Embeddings will be needed for this project and can be downloaded from this website: https://nlp.stanford.edu/projects/glove/
+Please download and unzip the contents of the version glove.6B.zip and place it in data>pre-trained>glove.
 
 Files of Interest:
 - SpamHamClassification.ipynb: holds all code, documentation and analysis
