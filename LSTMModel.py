@@ -439,7 +439,7 @@ class TrainValidate:
     - .compile_run(): hosts training loop
     - .gen_history_plot(): generates plot to visualize training history, given a history dict
     - .load_histories(): extracts histories from json file and calls .gen_history_plot()
-    - .eval_model(): evaluates self.model
+    - .eval_model(): evaluates self.model if not provided a model in the model argument of the fn
     - .eval_models(): iterates through saved models in directory (specified in class_results_folder of fileMaster.py), calls ._eval_model() on each saved model
 
     """
