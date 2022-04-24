@@ -16,7 +16,7 @@ To fully understand our project, please view the source code in order from: (KIV
   
 ## Contributors
 
-- @lemousehunter - Primary Coder, Neural Networks, Machine Learning Engineer
+- @lemousehunter - Primary Coder, Long Short-Term Memory Model, Machine Learning Engineer
 - @raydent30 - Secondary Coder, Exploratory Data Analysis, Data Analytics
 
 ## Problem Definition
