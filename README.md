@@ -19,7 +19,7 @@ Files of Interest:
 - requirements.txt: list of versions required for the libraries we used in our code
 
 Folders of Interest:
-- data: contains all data directories, including pre-trained embeedings, processed, raw, results and train_test (this train_test folder is used for notebook only)
+- data: contains all data directories, including pre-trained embeddings, processed, raw, results and train_test (this train_test folder is used for notebook only)
 - pre-trained: contains glove pre-trained embeddings
 - processed: contains the cleaned txt file and the train test folder (this train test is used solely by the TrainValidate class)
 - raw: contains all the raw data
@@ -42,12 +42,12 @@ Folders of Interest:
 
 ## Conclusion
 
-- Words and characters are much better predictors than sentences to classiy ham or spam messages
-- Classification trees are able to predict the type of message with relatively high accuracies, but with a low F1 score.
+- Words and characters are much better predictors than sentences to classify ham or spam messages
+- Classification trees can predict the type of message with relatively high accuracies, but with a low F1 score.
 - LSTM performs better than classification trees in predicting the type of message.
 - Vectorization plays a key role when dealing with textual data. 
-- Yes, it is possible to differentiate ham and spam messages using both Classfication Trees and LSTM, however, there is still room for improvement.
-- A transfomer theoretically will be able to produce much better F1 scores than both Classification Trees and LSTM.
+- Yes, it is possible to differentiate ham and spam messages using both Classification Trees and LSTM, however, there is still room for improvement.
+- A transformer theoretically will be able to produce much better F1 scores than both Classification Trees and LSTM.
 
 ## What did we learn from this project?
 
