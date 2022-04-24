@@ -686,6 +686,6 @@ if __name__ == '__main__':
                 h = json.load(f)
                 gen_history_plot(h, file)"""
 
-    # train_val.eval_model()
+    train_val.eval_model()
     # train_val.eval_models()
     # train_val.load_histories()
