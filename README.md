@@ -8,6 +8,8 @@ This is our Mini-Project for SC1015 (Introduction to Data Science and Artificial
 
 To fully understand our project, here are some details pertaining to the items in our repository:
 
+SpamHamClassification.ipynb: holds all code, documentation and analysis
+
 Files of Interest:
 - fileMaster.py: holds all the filepaths in variables for easy access (and change, if needed)
 - LSTMModel.py: contains the condensed classes required for training: PreProcess() which preprocesses the data, LSTMModel (Which is the model class) and TrainValidate (which contains the class to compile and fit (or load from saved folder) the LSTM model
@@ -23,7 +25,7 @@ Folders of Interest:
 ## Contributors
 
 - @lemousehunter - Primary Coder, Long Short-Term Memory Model, Machine Learning Engineer
-- @raydent30 - Secondary Coder, Exploratory Data Analysis, Data Analytics
+- @raydent30 - Secondary Coder, Exploratory Data Analysis, Data Analytics, Documentation
 
 ## Problem Definition
 
